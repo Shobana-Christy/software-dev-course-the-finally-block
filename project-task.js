@@ -65,8 +65,8 @@ function processFile(fileName, fileData) {
     console.error(err);
   } // TODO: Implement a finally block to close resources
    finally{
-
-   }console.log("releasing resources");
+    console.log("releasing resources");
+   }
 }
 
 // ============================================
