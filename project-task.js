@@ -45,18 +45,28 @@ Step 4: Test Your Solution
 function processFile(fileName, fileData) {
   try {
     // TODO: Add input validation here
+    if (!fileName){
+      throw new Error("File name is missing.");
+    }
+    if(typeof fileData !== "string"){
+      throw new Error("file data must be string");
+    }
+    if(fileData === ""){
+      throw new Error("Error: File data cannot be Empty");
+    }
     
     // TODO: Implement simulated file processing here
     console.log(`Processing file: ${fileName}`);
     console.log(`File content: ${fileData}`);
     
     // TODO: Add simulated file operations (reading/writing)
-    
   } catch (err) {
     // TODO: Implement error handling
     console.error(err);
-  }
-  // TODO: Implement a finally block to close resources
+  } // TODO: Implement a finally block to close resources
+   finally{
+
+   }console.log("releasing resources");
 }
 
 // ============================================
@@ -67,3 +77,6 @@ processFile(); // ❌ ReferenceError: File name is missing
 processFile("myFile.txt", 42); // ❌ TypeError: File data must be a string
 processFile("myFile.txt", ""); // ❌ Error: File data cannot be empty
 processFile("myFile.txt", "Hello, world!"); // ✅ Should process successfully
+processFile("myFile.txt", undefined);
+processFile("myFile.txt", null);
+
